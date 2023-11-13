@@ -1,0 +1,7 @@
+{
+  "json.schemas": [
+    {
+      "exlude": ["./node_modules"]
+    }
+  ]
+}
