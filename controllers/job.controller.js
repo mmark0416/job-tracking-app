@@ -5,8 +5,10 @@ export const getJobs = (req, res) => {
 };
 
 // CREATE JOB
-export const createJob = (req, res) => {
-
+export const createJob = async (req, res) => {
+  const { company, position } = req.body;
+  const newJob = await new Job({ company, position });
+  res.status(201).json(newJob);
 };
 
 // GET SINGLE JOB
