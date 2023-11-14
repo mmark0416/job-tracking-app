@@ -1,15 +1,10 @@
 import 'dotenv/config'
+import 'express-async-errors';
 import express from 'express';
 import morgan from 'morgan';
-import { nanoid } from 'nanoid';
 const app = express();
 import jobRouter from './routes/job.router.js'
 import connectDB from './db/connectDB.js';
-
-let jobs = [
-  {id:nanoid(), title:'Google', description:'frontend'},
-  {id:nanoid(), title:'Apple', description:'backend'},
-]
 
 if(process.env.NODE_ENV === 'development'){
   app.use(morgan('dev'));
