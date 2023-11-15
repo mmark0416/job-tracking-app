@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { USER_ROLES } from "../utils/constants.utils.js";
 
 const UserSchema = new mongoose.Schema({
   name: String,
@@ -6,17 +7,17 @@ const UserSchema = new mongoose.Schema({
   password: String,
   lastName: {
     type: String,
-    default: "lastName"
+    default: "lastName",
   },
   location: {
     type: String,
-    default: "my city"
+    default: "my city",
   },
   role: {
     type: String,
-    enum: ["user", "admin"],
-    default: "user"
+    enum: Object.values(USER_ROLES),
+    default: USER_ROLES.USER,
   },
 });
 
-const User = mongoose.model("User", UserSchema);
+export default mongoose.model("User", UserSchema);
