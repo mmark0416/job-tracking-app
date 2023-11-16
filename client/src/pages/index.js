@@ -1,6 +1,6 @@
-export { default as AddJob } from "./AddJob";
+export { default as AddJob } from "./AddJob/AddJob";
 export { default as Admin } from "./Admin";
-export { default as AllJobs } from "./AllJobs";
+export { default as AllJobs } from "./AllJobs/AllJobs";
 export { default as DashboardLayout } from "./Dashboard/DashboardLayout";
 export { default as DeleteJob } from "./DeleteJob";
 export { default as EditJob } from "./EditJob";
