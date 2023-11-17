@@ -6,3 +6,4 @@ export { default as Navbar } from "./Navbar/Navbar";
 export { default as FormRowSelect } from "./FormRowSelect";
 export { default as JobsContainer } from "./JobContainer/JobsContainer";
 export { default as SearchContainer } from "./SearchContainer";
+export { default as StatItem } from "./StatItem/StatItem";

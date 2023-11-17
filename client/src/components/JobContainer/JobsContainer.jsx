@@ -1,4 +1,4 @@
-import { useAllJobsContext } from "../../pages/AllJobs/AllJobs";
+import { useAllJobsContext } from "../../pages/AllJobs";
 import Job from "../Job/Job";
 import Wrapper from "./JobsContainer.wrapper";
 
