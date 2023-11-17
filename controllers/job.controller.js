@@ -36,7 +36,7 @@ export const editJob = async (req, res) => {
 
 // DELETE JOB
 export const deleteJob = async (req, res) => {
-  const removedJob = await Job.findByIdAndDelete(req.paramsid);
+  const removedJob = await Job.findByIdAndDelete(req.params.id);
 
   res.status(StatusCodes.OK).json({ msg: "job deleted", job: removedJob });
 };
