@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const FormRowSelect = ({ name, labelText, list, defaultValue = "" }) => {
   return (
     <div className="form-row">
@@ -5,10 +7,10 @@ const FormRowSelect = ({ name, labelText, list, defaultValue = "" }) => {
         {labelText || name}
       </label>
       <select
-        name={name} 
-        id={name} 
+        name={name}
+        id={name}
         className="form-select"
-        defaultValue={defaultValue} 
+        defaultValue={defaultValue}
       >
         {list.map((status) => (
           <option key={status} value={status}>
@@ -18,6 +20,13 @@ const FormRowSelect = ({ name, labelText, list, defaultValue = "" }) => {
       </select>
     </div>
   );
+};
+
+FormRowSelect.propTypes = {
+  name: PropTypes.string,
+  labelText: PropTypes.string,
+  list: PropTypes.array,
+  defaultValue: PropTypes.string,
 };
 
 export default FormRowSelect;
