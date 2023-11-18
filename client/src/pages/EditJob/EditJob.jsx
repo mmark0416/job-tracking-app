@@ -1,8 +1,8 @@
-import { FormRow, FormRowSelect } from "../../components";
+import { FormRow, FormRowSelect, SubmitBtn } from "../../components";
 import Wrapper from "./DashboardFormPage.wrapper.js";
 import { useLoaderData } from "react-router-dom";
 import { JOB_STATUSES, JOB_TYPES } from "../../../../utils/constants.utils";
-import { Form, useNavigation, redirect } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import customFetch from "../../utils/customFetch";
 
@@ -32,8 +32,6 @@ export const action = async ({ request, params }) => {
 const EditJob = () => {
   const { job } = useLoaderData();
 
-  const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
   return (
     <Wrapper>
       <Form method="post" className="form">
@@ -58,9 +56,7 @@ const EditJob = () => {
             defaultValue={job.jobType}
             list={Object.values(JOB_TYPES)}
           />
-          <button type="submit" className="btn btn-clock form-btn">
-            {isSubmitting ? "updating..." : "update"}
-          </button>
+          <SubmitBtn formBtn />
         </h4>
       </Form>
     </Wrapper>

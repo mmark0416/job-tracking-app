@@ -7,6 +7,6 @@ export { default as Error } from "./Error/Error";
 export { default as HomeLayout } from "./HomeLayout";
 export { default as Landing } from "./Landing/Landing";
 export { default as Login } from "./LoginAndRegister/Login";
-export { default as Profile } from "./Profile";
+export { default as Profile } from "./Profile/Profile";
 export { default as Register } from "./LoginAndRegister/Register";
 export { default as Stats } from "./Stats";
