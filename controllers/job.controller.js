@@ -6,9 +6,47 @@ import dayjs from "dayjs";
 
 //Get all jobs
 export const getJobs = async (req, res) => {
-  const jobs = await Job.find({ createdBy: req.user.userId });
+  const { search, jobStatus, jobType, sort } = req.query;
+  const queryObj = {
+    createdBy: req.user.userId,
+  };
 
-  res.status(StatusCodes.OK).json({ jobs });
+  if (search) {
+    queryObj.$or = [
+      { position: { $regex: search, $options: "i" } },
+      { company: { $regex: search, $options: "i" } },
+    ];
+  }
+
+  if (jobStatus && jobStatus !== "all") {
+    queryObj.jobStatus = jobStatus;
+  }
+
+  if (jobType && jobType !== "all") {
+    queryObj.jobType = jobType;
+  }
+
+  const sortOptions = {
+    newest: "-createdAt",
+    oldest: "createdAt",
+    "a-z": "position",
+    "z-a": "-position",
+  };
+
+  const sortKey = sortOptions[sort] || sortOptions.newest;
+
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+
+  const jobs = await Job.find(queryObj).sort(sortKey).skip(skip).limit(limit);
+
+  const totalJobs = await Job.countDocuments(queryObj);
+  const numOfPages = Math.ceil(totalJobs / limit);
+
+  res
+    .status(StatusCodes.OK)
+    .json({ totalJobs, numOfPages, currentPage: page, jobs });
 };
 
 // CREATE JOB
@@ -87,17 +125,25 @@ export const showStats = async (req, res) => {
       },
     },
     { $sort: { "_id.year": -1, "_id.month": -1 } },
-    {$limit: 6}
+    { $limit: 6 },
   ]);
 
-  monthlyApplications = monthlyApplications.map((item) => {
-    const { _id: {year, month}, count } = item;
-    const date = dayjs().month(month - 1).year(year).format("MMM YY");
-    return {
-      date,
-      count,
-    };
-  }).reverse();
+  monthlyApplications = monthlyApplications
+    .map((item) => {
+      const {
+        _id: { year, month },
+        count,
+      } = item;
+      const date = dayjs()
+        .month(month - 1)
+        .year(year)
+        .format("MMM YY");
+      return {
+        date,
+        count,
+      };
+    })
+    .reverse();
 
   res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
 };

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const FormRow = ({type, name, labelText, defaultValue}) => {
+const FormRow = ({type, name, labelText, defaultValue, onChange}) => {
   return (
     <div className="form-row">
       <label htmlFor={name} className="form-label">
@@ -13,6 +13,7 @@ const FormRow = ({type, name, labelText, defaultValue}) => {
         className="form-input"
         defaultValue={defaultValue || ""}
         required
+        onChange={onChange}
       />
     </div>
   );
@@ -23,6 +24,7 @@ FormRow.propTypes = {
   name: PropTypes.string,
   labelText: PropTypes.string,
   defaultValue: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default FormRow;
