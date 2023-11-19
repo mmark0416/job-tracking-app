@@ -19,13 +19,14 @@ import { action as registerAction } from "./pages/LoginAndRegister/Register";
 import { action as loginAction } from "./pages/LoginAndRegister/Login";
 import { action as addJobAction } from "./pages/AddJob/AddJob";
 import { action as editJobAction } from "./pages/EditJob/EditJob";
-import { action as DeleteJobAction } from "./pages/DeleteJob";
-import { action as ProfileAction } from "./pages/Profile/Profile";
+import { action as deleteJobAction } from "./pages/DeleteJob";
+import { action as profileAction } from "./pages/Profile/Profile";
 
 import { loader as dashboardLoader } from "./pages/Dashboard/DashboardLayout";
 import { loader as allJobsLoader } from "./pages/AllJobs";
 import { loader as editJobLoader } from "./pages/EditJob/EditJob";
-import { loader as AdminLoader } from "./pages/Admin/Admin";
+import { loader as adminLoader } from "./pages/Admin/Admin";
+import { loader as statsLoader } from "./pages/Stats";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -68,6 +69,7 @@ const router = createBrowserRouter([
           {
             path: "stats",
             element: <Stats />,
+            loader: statsLoader,
           },
           {
             path: "all-jobs",
@@ -77,12 +79,12 @@ const router = createBrowserRouter([
           {
             path: "profile",
             element: <Profile />,
-            action: ProfileAction,
+            action: profileAction,
           },
           {
             path: "admin",
             element: <Admin />,
-            loader: AdminLoader,
+            loader: adminLoader,
           },
           {
             path: "edit-job/:id",
@@ -90,7 +92,7 @@ const router = createBrowserRouter([
             loader: editJobLoader,
             action: editJobAction,
           },
-          { path: "delete-job/:id", action: DeleteJobAction },
+          { path: "delete-job/:id", action: deleteJobAction },
         ],
       },
     ],
