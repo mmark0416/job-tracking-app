@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <Wrapper>
       <Form method="post" className="form">
-        <Logo />
+          <Logo className="logo" />
         <h4>login</h4>
         <FormRow type="email" name="email" />
         <FormRow type="password" name="password" />

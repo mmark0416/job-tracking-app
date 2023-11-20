@@ -6,6 +6,8 @@ const Wrapper = styled.section`
   align-items: center;
   .logo {
     display: block;
+    width: 10rem;
+    text-align: center;
     margin: 0 auto;
     margin-bottom: 1.38rem;
   }

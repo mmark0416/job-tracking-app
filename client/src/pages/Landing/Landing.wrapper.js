@@ -37,6 +37,10 @@ const Wrapper = styled.section`
   .btn {
     padding: 0.75rem 1rem;
   }
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
   @media (min-width: 992px) {
     .page {
       grid-template-columns: 1fr 400px;
