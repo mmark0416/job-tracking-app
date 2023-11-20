@@ -1,4 +1,4 @@
-import Wrapper from "./BigSideBar.wrapper.js";
+import Wrapper from "./BigSidebar.wrapper.js";
 import NavLinks from "../NavLinks.jsx";
 import Logo from "../Logo.jsx";
 import { useDashboardContext } from "../../pages/Dashboard/DashboardLayout.jsx";
