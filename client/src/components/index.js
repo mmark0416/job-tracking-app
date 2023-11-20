@@ -10,3 +10,4 @@ export { default as StatItem } from "./StatItem/StatItem";
 export { default as SubmitBtn } from "./SubmitBtn";
 export { default as ChartsContainer } from "./ChartsContainer/ChartsContainer";
 export { default as StatsContainer } from "./StatsContainer/StatsContainer";
+export { default as Loading } from "./Loading";
