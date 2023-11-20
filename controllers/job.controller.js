@@ -1,5 +1,5 @@
 import { NotFoundError } from "../errors/customError.js";
-import Job from "../models/job.model.js";
+import Job from "../models/Job.model.js";
 import { StatusCodes } from "http-status-codes";
 import mongoose from "mongoose";
 import dayjs from "dayjs";

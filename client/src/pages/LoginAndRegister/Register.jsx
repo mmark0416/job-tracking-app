@@ -4,18 +4,18 @@ import { FormRow, Logo, SubmitBtn } from "../../components";
 import customFetch from "../../utils/customFetch";
 import { toast } from "react-toastify";
 
-export const action = async ({request}) => {
-  const formData = await request.formData()
-  const data = Object.fromEntries(formData.entries())
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData.entries());
   try {
-    await customFetch.post("/auth/register", data)
-    toast.success("Registration successful")
-    return redirect("/login")
+    await customFetch.post("/auth/register", data);
+    toast.success("Registration successful");
+    return redirect("/login");
   } catch (error) {
-    toast.error(error?.response?.data.msg)
-    return null
+    toast.error(error?.response?.data.msg);
+    return null;
   }
-}
+};
 
 const Register = () => {
   return (
@@ -23,16 +23,11 @@ const Register = () => {
       <Form method="post" className="form">
         <Logo />
         <h4>Register</h4>
-        <FormRow type="text" name="name" defaultValue="mark" />
-        <FormRow
-          type="text"
-          name="lastName"
-          labelText="last name"
-          defaultValue="majoros"
-        />
-        <FormRow type="text" name="location" defaultValue="europa" />
-        <FormRow type="text" name="email" defaultValue="mark@gmail.com" />
-        <FormRow type="password" name="password" defaultValue="secret123" />
+        <FormRow type="text" name="name" />
+        <FormRow type="text" name="lastName" labelText="last name" />
+        <FormRow type="text" name="location" />
+        <FormRow type="text" name="email" />
+        <FormRow type="password" name="password" />
         <SubmitBtn formBtn />
         <p>
           Already a member?

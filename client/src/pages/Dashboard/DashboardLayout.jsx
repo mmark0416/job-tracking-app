@@ -4,7 +4,7 @@ import { BigSideBar, SmallSidebar, Navbar } from "../../components";
 import { createContext, useContext, useState } from "react";
 import { checkDefaultTheme } from "../../App";
 import customFetch from "../../utils/customFetch";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 export const loader = async () => {
   try {

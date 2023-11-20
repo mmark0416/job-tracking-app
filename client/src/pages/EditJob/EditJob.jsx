@@ -1,5 +1,5 @@
 import { FormRow, FormRowSelect, SubmitBtn } from "../../components";
-import Wrapper from "./DashboardFormPage.wrapper.js";
+import Wrapper from "./EditJob.wrapper.js";
 import { useLoaderData } from "react-router-dom";
 import { JOB_STATUSES, JOB_TYPES } from "../../../../utils/constants.utils";
 import { Form, redirect } from "react-router-dom";

@@ -6,7 +6,7 @@ import Wrapper from "./Navbar.wrapper.js";
 import { FaAlignLeft } from "react-icons/fa";
 
 const Navbar = () => {
-  const {toggleSidebar} = useDashboardContext()
+  const { toggleSidebar } = useDashboardContext();
 
   return (
     <Wrapper>

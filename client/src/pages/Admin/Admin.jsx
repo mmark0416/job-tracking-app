@@ -1,7 +1,7 @@
 import { FaSuitcaseRolling, FaCalendarCheck } from "react-icons/fa";
 import { useLoaderData, redirect } from "react-router-dom";
 import customFetch from "../../utils/customFetch";
-import Wrapper from "./StatsContainer.wrapper.js";
+import Wrapper from "./Admin.wrapper.js";
 import { toast } from "react-toastify";
 import { StatItem } from "../../components";
 

@@ -17,7 +17,7 @@ router
   .get(getJobs)
   .post(checkForTestUser, validateJobInput, createJob);
 
-router.route("/stats").get(showStats)
+router.route("/stats").get(showStats);
 
 router
   .route("/:id")

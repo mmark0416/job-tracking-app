@@ -17,21 +17,23 @@ const StatsContainer = ({ defaultStats }) => {
       count: defaultStats.interview,
       icon: <FaCalendarCheck />,
       color: "#647acb",
-      bcg: "#e0e8f9"
+      bcg: "#e0e8f9",
     },
     {
       title: "Declined",
       count: defaultStats.declined,
       icon: <FaBug />,
       color: "#d66a6a",
-      bcg: "#ffeeee"
-    }
-  ]
-  return <Wrapper>
-    {stats.map((stat, index) => (
-      <StatItem key={index} {...stat} />
-    ))}
-  </Wrapper>;
+      bcg: "#ffeeee",
+    },
+  ];
+  return (
+    <Wrapper>
+      {stats.map((stat, index) => (
+        <StatItem key={index} {...stat} />
+      ))}
+    </Wrapper>
+  );
 };
 
 StatsContainer.propTypes = {

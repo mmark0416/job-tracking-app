@@ -3,14 +3,14 @@ import links from "../utils/links";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const NavLinks = ({isBigSidebar}) => {
+const NavLinks = ({ isBigSidebar }) => {
   const { toggleSidebar, user } = useDashboardContext();
   return (
     <div className="nav-links">
       {links.map((link) => {
         const { text, icon, path } = link;
         const { role } = user;
-        if(path === "admin" && role !== "admin") return null;
+        if (path === "admin" && role !== "admin") return null;
         return (
           <NavLink
             key={text}

@@ -1,6 +1,12 @@
 import PropTypes from "prop-types";
 
-const FormRowSelect = ({ name, labelText, list, defaultValue = "", onChange }) => {
+const FormRowSelect = ({
+  name,
+  labelText,
+  list,
+  defaultValue = "",
+  onChange,
+}) => {
   return (
     <div className="form-row">
       <label htmlFor={name} className="form-label">

@@ -1,5 +1,5 @@
 import { Link, Form, useSubmit } from "react-router-dom";
-import { FormRow, FormRowSelect, SubmitBtn } from "../";
+import { FormRow, FormRowSelect } from "../";
 import Wrapper from "./SearchContainer.wrapper.js";
 import {
   JOB_STATUSES,
@@ -14,22 +14,22 @@ const SearchContainer = () => {
   const submit = useSubmit();
 
   const debounce = (onChange) => {
-    let timetout
+    let timetout;
     return (e) => {
-     const form = e.currentTarget.form;
-     clearTimeout(timetout);
-     timetout = setTimeout(() => {
-       onChange(form);
-     }, 2000);
-    }
-  }
+      const form = e.currentTarget.form;
+      clearTimeout(timetout);
+      timetout = setTimeout(() => {
+        onChange(form);
+      }, 2000);
+    };
+  };
 
   const handleResetBtn = () => {
     search = "";
     jobStatus = "all";
     jobType = "all";
     sort = JOB_SORT_BY.NEWEST;
-  }
+  };
   return (
     <Wrapper>
       <Form className="form">
@@ -68,7 +68,11 @@ const SearchContainer = () => {
               submit(e.currentTarget.form);
             }}
           />
-          <Link to="/dashboard/all-jobs" onClick={handleResetBtn} className="btn form-btn delete-btn">
+          <Link
+            to="/dashboard/all-jobs"
+            onClick={handleResetBtn}
+            className="btn form-btn delete-btn"
+          >
             Reset Search Values
           </Link>
         </div>

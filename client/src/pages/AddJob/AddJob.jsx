@@ -1,5 +1,5 @@
 import { FormRow, FormRowSelect, SubmitBtn } from "../../components";
-import Wrapper from "./DashboardFormPage";
+import Wrapper from "./AddJob.wrapper";
 import { useOutletContext } from "react-router-dom";
 import { JOB_STATUSES, JOB_TYPES } from "../../../../utils/constants.utils.js";
 import { Form, redirect } from "react-router-dom";
@@ -15,7 +15,7 @@ export const action = async ({ request }) => {
     return redirect("all-jobs");
   } catch (error) {
     toast.error(error.response.data.msg);
-    return error
+    return error;
   }
 };
 
@@ -47,7 +47,7 @@ const AddJob = () => {
             defaultValue={JOB_TYPES.FULL_TIME}
             list={Object.values(JOB_TYPES)}
           />
-        <SubmitBtn formBtn />
+          <SubmitBtn formBtn />
         </div>
       </Form>
     </Wrapper>

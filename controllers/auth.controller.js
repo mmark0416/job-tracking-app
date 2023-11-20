@@ -40,4 +40,4 @@ export const logout = async (req, res) => {
     secure: process.env.NODE_ENV === "production",
   });
   res.status(StatusCodes.OK).json({ msg: "user logged out" });
-}
+};
