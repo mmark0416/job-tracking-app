@@ -6,7 +6,7 @@ import {
 } from "../errors/customError.js";
 import { JOB_STATUSES, JOB_TYPES } from "../utils/constants.utils.js";
 import mongoose from "mongoose";
-import Job from "../models/job.model.js";
+import Job from "../models/Job.model.js";
 import User from "../models/User.model.js";
 
 const withValidationErrorHandler = (validateValues) => {
