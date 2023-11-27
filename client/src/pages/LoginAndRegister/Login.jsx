@@ -4,23 +4,26 @@ import { FormRow, Logo, SubmitBtn } from "../../components";
 import customFetch from "../../utils/customFetch";
 import { toast } from "react-toastify";
 
-export const action = async ({ request }) => {
-  const formData = await request.formData();
-  const data = Object.fromEntries(formData.entries());
-  const errors = { msg: "" };
-  if (data.password.length < 6) {
-    errors.msg = "password to short";
-    return errors;
-  }
-  try {
-    await customFetch.post("/auth/login", data);
-    toast.success("Login successful");
-    return redirect("/dashboard");
-  } catch (error) {
-    toast.error(error?.response?.data?.msg);
-    return error;
-  }
-};
+export const action =
+  (queryClient) =>
+  async ({ request }) => {
+    const formData = await request.formData();
+    const data = Object.fromEntries(formData.entries());
+    const errors = { msg: "" };
+    if (data.password.length < 6) {
+      errors.msg = "password to short";
+      return errors;
+    }
+    try {
+      await customFetch.post("/auth/login", data);
+      queryClient.invalidateQueries();
+      toast.success("Login successful");
+      return redirect("/dashboard");
+    } catch (error) {
+      toast.error(error?.response?.data?.msg);
+      return error;
+    }
+  };
 
 const Login = () => {
   const navigate = useNavigate();
@@ -42,7 +45,7 @@ const Login = () => {
   return (
     <Wrapper>
       <Form method="post" className="form">
-          <Logo className="logo" />
+        <Logo className="logo" />
         <h4>login</h4>
         <FormRow type="email" name="email" />
         <FormRow type="password" name="password" />
